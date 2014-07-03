@@ -1,4 +1,4 @@
-# Jekyll And Boostrap, together
+# Jekyll and Boostrap, together
 
 > This repo provides resources to help version sites built with [Jekyll](http://jekyllrb.com) and [Bootstrap](http://getbootstrap.com).
 
