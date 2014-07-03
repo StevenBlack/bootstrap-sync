@@ -1,0 +1,40 @@
+{
+  "name": "Jekyll-And-Bootstrap",
+  "description": "This repo provides resources to help version sites built with [Jekyll](http://jekyllrb.com) and [Bootstrap](http://getbootstrap.com).",
+  "version": "0.0.0",
+  "keywords": [
+    "Jekyll",
+    "bootstrap"
+  ],
+  "homepage": "https://github.com/StevenBlack/jekyll-and-bootstrap",
+  "author": "Steven Black",
+  "style": "css/bootstrap.css",
+  "less": "bootstrap/less/custom.less",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StevenBlack/jekyll-and-bootstrap"
+  },
+  "bugs": {
+    "url": "https://github.com/StevenBlack/jekyll-and-bootstrap/issues"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://raw.githubusercontent.com/StevenBlack/jekyll-and-bootstrap/master/LICENSE-MIT"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-cssmin": "~0.10.0",
+    "grunt-contrib-less": "~0.11.3",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-git": "^0.2.14",
+    "grunt-jekyll": "~0.4.2",
+    "grunt-recess": "~0.4.0",
+    "grunt-yui-compressor": "0.3.0"
+  },
+  "engines": {
+    "node": "~0.10.1"
+  }
+}
