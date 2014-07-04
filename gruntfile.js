@@ -11,7 +11,8 @@ module.exports = function( grunt ) {
 
 		clean: {
 			'bootstrap-source': [ 'bootstrap/' ],
-			'bootstrap-fonts': [ 'fonts/' ]
+			'bootstrap-fonts': [ 'fonts/' ],
+			'css': [ 'css/' ]
 		},
 
 		copy: {
@@ -42,26 +43,38 @@ module.exports = function( grunt ) {
 				},
 				files: { '<%= pkg.config.location.deploy.css %>/<%= pkg.config.filename.css %>': '<%= pkg.config.location.bootstrap.local %>/less/custom.less' }
 			}
-		}
+		},
+
+		cssmin: {
+			'dist': {
+				'src': [ '<%= pkg.config.location.deploy.css %>/<%= pkg.config.filename.css %>' ],
+				'dest': '<%= pkg.config.location.deploy.css %>/<%= pkg.config.filename.cssmin %>'
+			}
+		},
 
 	});
 
 	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 	grunt.loadNpmTasks( 'grunt-contrib-clean' );
 	grunt.loadNpmTasks( 'grunt-contrib-less' );
-
+	grunt.loadNpmTasks( 'grunt-yui-compressor' );
 
 	// Bootstrap tasks
+	//    cleanup
 	grunt.registerTask( 'clean-bootstrap', [ 'clean:bootstrap-source' ] );
 	grunt.registerTask( 'clean-fonts', [ 'clean:bootstrap-fonts' ] );
+	grunt.registerTask( 'clean-css', [ 'clean:css' ] );
 
+	//    construscting
 	grunt.registerTask( 'fetch-fresh-bootstrap', [ 'copy:bootstrap-source' ] );
 	grunt.registerTask( 'apply-bootstrap-tweaks', [ 'copy:bootstrap-tweaks' ] );
 	grunt.registerTask( 'update-fonts', [ 'copy:stage-fonts' ] );
 	grunt.registerTask( 'bootstrap', [ 'clean-bootstrap', 'clean-bootstrap', 'fetch-fresh-bootstrap', 'apply-bootstrap-tweaks', 'update-fonts' ] );
 
-	// Less tasks
-	grunt.registerTask('less-compile', ['less:compileCore']);
+	// Less and css tasks
+	grunt.registerTask(  'less-compile', ['less:compileCore']);
+	grunt.registerTask(  'css-minify', ['cssmin:dist']);
+	grunt.registerTask(  'css', [ 'clean-css', 'less-compile', 'css-minify']);
 
 };
 

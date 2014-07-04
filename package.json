@@ -51,9 +51,9 @@
       },
       "filename": {
         "css": "main.css",
-        "css-min": "main.min.css",
+        "cssmin": "main.min.css",
         "js": "main.js",
-        "js-min": "main.min.js"
+        "jsmin": "main.min.js"
       }
   }
 }
