@@ -69,7 +69,7 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'fetch-fresh-bootstrap', [ 'copy:bootstrap-source' ] );
 	grunt.registerTask( 'apply-bootstrap-tweaks', [ 'copy:bootstrap-tweaks' ] );
 	grunt.registerTask( 'update-fonts', [ 'copy:stage-fonts' ] );
-	grunt.registerTask( 'bootstrap', [ 'clean-bootstrap', 'clean-bootstrap', 'fetch-fresh-bootstrap', 'apply-bootstrap-tweaks', 'update-fonts' ] );
+	grunt.registerTask( 'bootstrap', [ 'clean-bootstrap', 'fetch-fresh-bootstrap', 'apply-bootstrap-tweaks', 'update-fonts' ] );
 
 	// Less and css tasks
 	grunt.registerTask(  'less-compile', ['less:compileCore']);
