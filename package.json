@@ -45,7 +45,8 @@
           },
           "deploy": {
             "css": "css",
-            "js": "js"
+            "js": "js",
+            "fonts": "fonts"
           }
       },
       "filename": {

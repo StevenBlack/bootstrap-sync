@@ -9,7 +9,10 @@ module.exports = function( grunt ) {
 		// Metadata.
 		pkg: grunt.file.readJSON( 'package.json' ),
 
-		clean: { 'bootstrap-source': [ 'bootstrap/' ] },
+		clean: {
+			'bootstrap-source': [ 'bootstrap/' ],
+			'bootstrap-fonts': [ 'fonts/' ]
+		},
 
 		copy: {
 			'bootstrap-source': {
@@ -22,6 +25,12 @@ module.exports = function( grunt ) {
 			'bootstrap-tweaks': {
 				src: [ 'less/*' ],
 				dest: '<%= pkg.config.location.bootstrap.local %>/',
+			},
+			'stage-fonts': {
+				expand: true,
+				flatten: true,
+				src: [ '<%= pkg.config.location.bootstrap.local %>/fonts/*' ],
+				dest: '<%= pkg.config.location.deploy.fonts %>/'
 			}
 		},
 
@@ -44,9 +53,12 @@ module.exports = function( grunt ) {
 
 	// Bootstrap tasks
 	grunt.registerTask( 'clean-bootstrap', [ 'clean:bootstrap-source' ] );
+	grunt.registerTask( 'clean-fonts', [ 'clean:bootstrap-fonts' ] );
+
 	grunt.registerTask( 'fetch-fresh-bootstrap', [ 'copy:bootstrap-source' ] );
 	grunt.registerTask( 'apply-bootstrap-tweaks', [ 'copy:bootstrap-tweaks' ] );
-	grunt.registerTask( 'bootstrap', [ 'clean-bootstrap', 'fetch-fresh-bootstrap', 'copy:bootstrap-tweaks' ] );
+	grunt.registerTask( 'update-fonts', [ 'copy:stage-fonts' ] );
+	grunt.registerTask( 'bootstrap', [ 'clean-bootstrap', 'clean-bootstrap', 'fetch-fresh-bootstrap', 'apply-bootstrap-tweaks', 'update-fonts' ] );
 
 	// Less tasks
 	grunt.registerTask('less-compile', ['less:compileCore']);
