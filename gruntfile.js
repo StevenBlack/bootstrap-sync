@@ -54,10 +54,9 @@ module.exports = function( grunt ) {
 
 	});
 
-	grunt.loadNpmTasks( 'grunt-contrib-copy' );
-	grunt.loadNpmTasks( 'grunt-contrib-clean' );
-	grunt.loadNpmTasks( 'grunt-contrib-less' );
-	grunt.loadNpmTasks( 'grunt-yui-compressor' );
+	// This one-liner replaces multiple grunt.loadNpmTasks() calls
+	// See http://www.thomasboyt.com/2013/09/01/maintainable-grunt.html
+	require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
 
 	// Bootstrap tasks
 	//    cleanup
