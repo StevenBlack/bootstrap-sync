@@ -4,3 +4,5 @@ _site
 /bootstrap/
 
 /fonts/
+
+/css/main.min.css
