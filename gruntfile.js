@@ -14,7 +14,8 @@ module.exports = function( grunt ) {
 		clean: {
 			'bootstrap-source': [ 'bootstrap/' ],
 			'bootstrap-fonts': [ 'fonts/' ],
-			'css': [ 'css/' ]
+			'css': [ 'css/' ],
+			'js': [ 'js/' ]
 		},
 
 		copy: {
@@ -37,7 +38,30 @@ module.exports = function( grunt ) {
 			}
 		},
 
+		concat: {
+			options: {
 				banner: '<%= jqueryCheck %>',
+				stripBanners: false
+			},
+			bootstrap: {
+				src: [
+					'<%= pkg.config.location.bootstrap.local %>/js/transition.js',
+					'<%= pkg.config.location.bootstrap.local %>/js/alert.js',
+					'<%= pkg.config.location.bootstrap.local %>/js/button.js',
+					'<%= pkg.config.location.bootstrap.local %>/js/carousel.js',
+					'<%= pkg.config.location.bootstrap.local %>/js/collapse.js',
+					'<%= pkg.config.location.bootstrap.local %>/js/dropdown.js',
+					'<%= pkg.config.location.bootstrap.local %>/js/modal.js',
+					'<%= pkg.config.location.bootstrap.local %>/js/tooltip.js',
+					'<%= pkg.config.location.bootstrap.local %>/js/popover.js',
+					'<%= pkg.config.location.bootstrap.local %>/js/scrollspy.js',
+					'<%= pkg.config.location.bootstrap.local %>/js/tab.js',
+					'<%= pkg.config.location.bootstrap.local %>/js/affix.js'
+				],
+				dest: '<%= pkg.config.location.deploy.js %>/<%= pkg.config.filename.js %>'
+			}
+		},
+
 		less: {
 			compileCore: {
 				options: {
@@ -53,7 +77,7 @@ module.exports = function( grunt ) {
 				'src': [ '<%= pkg.config.location.deploy.css %>/<%= pkg.config.filename.css %>' ],
 				'dest': '<%= pkg.config.location.deploy.css %>/<%= pkg.config.filename.cssmin %>'
 			}
-		},
+		}
 
 	});
 
@@ -66,6 +90,7 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'clean-bootstrap', [ 'clean:bootstrap-source' ] );
 	grunt.registerTask( 'clean-fonts', [ 'clean:bootstrap-fonts' ] );
 	grunt.registerTask( 'clean-css', [ 'clean:css' ] );
+	grunt.registerTask( 'clean-js', [ 'clean:js' ] );
 
 	//    construscting
 	grunt.registerTask( 'fetch-fresh-bootstrap', [ 'copy:bootstrap-source' ] );
@@ -78,5 +103,7 @@ module.exports = function( grunt ) {
 	grunt.registerTask(  'css-minify', ['cssmin:dist']);
 	grunt.registerTask(  'css', [ 'clean-css', 'less-compile', 'css-minify']);
 
+	// js tasks
+	grunt.registerTask(  'js-bootstrap', ['clean-js', 'concat:bootstrap']);
 };
 
