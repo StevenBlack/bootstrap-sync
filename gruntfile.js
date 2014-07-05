@@ -19,10 +19,10 @@ module.exports = function( grunt ) {
 		jqueryCheck: 'if (typeof jQuery === \'undefined\') { throw new Error(\'Bootstrap\\\'s JavaScript requires jQuery\') }\n\n' ,
 
 		clean: {
-			'bootstrap-source': [ 'bootstrap/' ],
-			'bootstrap-fonts': [ 'fonts/' ],
-			'css': [ 'css/', "!css/main.css" ],
-			'js': [ 'js/' ]
+			'bootstrap-source': [ '<%= settings.location.bootstrap.local %>/' ],
+			'bootstrap-fonts': [ 'settings.location.deploy.fonts %>/' ],
+			'css': [ '<%= settings.location.deploy.css %>/', "!<%= settings.location.deploy.css %>/main.css" ],
+			'js': [ '<%= settings.location.deploy.js %>/' ]
 		},
 
 		copy: {
@@ -30,8 +30,8 @@ module.exports = function( grunt ) {
 				nonull: true,
 				expand: true,
 				cwd: '<%= settings.location.bootstrap.authoritative %>/',
-				src: [ 'fonts/*', 'js/*', 'less/**' ],
-				dest: 'bootstrap/',
+				src: [ '<%= settings.location.deploy.fonts %>/*', '<%= settings.location.deploy.js %>/*', 'less/**' ],
+				dest: '<%= settings.location.bootstrap.local %>/',
 			},
 			'bootstrap-tweaks': {
 				src: [ 'less/*' ],
