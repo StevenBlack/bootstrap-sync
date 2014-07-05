@@ -69,6 +69,11 @@ module.exports = function( grunt ) {
 			}
 		},
 
+		uglify: {
+			options: { report: 'min', compress: true },
+			bootstrap: { src: ['<%= concat.bootstrapjs.dest %>'], dest: '<%= settings.location.deploy.js %>/<%= settings.filename.jsmin %>' }
+		},
+
 		less: {
 			compileCore: {
 				options: {
@@ -112,7 +117,8 @@ module.exports = function( grunt ) {
 	// js tasks
 	grunt.registerTask( 'clean-js', [ 'clean:js' ] );
 	grunt.registerTask( 'js-bootstrap', ['clean-js', 'concat:bootstrapjs']);
-	grunt.registerTask( 'js', [ 'js-bootstrap' ]);
+	grunt.registerTask( 'js-minify', [ 'uglify:bootstrap']);
+	grunt.registerTask( 'js', [ 'js-bootstrap', 'js-minify' ]);
 
 	// all
 	grunt.registerTask(  'clean-all', ['clean-bootstrap', 'clean-fonts', 'clean-css', 'clean-js' ]);
