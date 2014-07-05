@@ -9,6 +9,8 @@ module.exports = function( grunt ) {
 		// Metadata.
 		pkg: grunt.file.readJSON( 'package.json' ),
 
+		jqueryCheck: 'if (typeof jQuery === \'undefined\') { throw new Error(\'Bootstrap\\\'s JavaScript requires jQuery\') }\n\n' ,
+
 		clean: {
 			'bootstrap-source': [ 'bootstrap/' ],
 			'bootstrap-fonts': [ 'fonts/' ],
@@ -35,6 +37,7 @@ module.exports = function( grunt ) {
 			}
 		},
 
+				banner: '<%= jqueryCheck %>',
 		less: {
 			compileCore: {
 				options: {
