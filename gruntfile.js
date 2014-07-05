@@ -21,7 +21,7 @@ module.exports = function( grunt ) {
 		clean: {
 			'bootstrap-source': [ 'bootstrap/' ],
 			'bootstrap-fonts': [ 'fonts/' ],
-			'css': [ 'css/' ],
+			'css': [ 'css/', "!css/main.css" ],
 			'js': [ 'js/' ]
 		},
 
@@ -96,21 +96,27 @@ module.exports = function( grunt ) {
 	//    cleanup
 	grunt.registerTask( 'clean-bootstrap', [ 'clean:bootstrap-source' ] );
 	grunt.registerTask( 'clean-fonts', [ 'clean:bootstrap-fonts' ] );
-	grunt.registerTask( 'clean-css', [ 'clean:css' ] );
-	grunt.registerTask( 'clean-js', [ 'clean:js' ] );
 
-	//    construscting
+	//    constructing
 	grunt.registerTask( 'fetch-fresh-bootstrap', [ 'copy:bootstrap-source' ] );
 	grunt.registerTask( 'apply-bootstrap-tweaks', [ 'copy:bootstrap-tweaks' ] );
-	grunt.registerTask( 'update-fonts', [ 'copy:stage-fonts' ] );
+	grunt.registerTask( 'update-fonts', [ 'clean-fonts', 'copy:stage-fonts' ] );
 	grunt.registerTask( 'bootstrap', [ 'clean-bootstrap', 'fetch-fresh-bootstrap', 'apply-bootstrap-tweaks', 'update-fonts' ] );
 
 	// Less and css tasks
-	grunt.registerTask(  'less-compile', ['less:compileCore']);
-	grunt.registerTask(  'css-minify', ['cssmin:dist']);
-	grunt.registerTask(  'css', [ 'clean-css', 'less-compile', 'css-minify']);
+	grunt.registerTask( 'clean-css', [ 'clean:css' ] );
+	grunt.registerTask( 'less-compile', ['less:compileCore']);
+	grunt.registerTask( 'css-minify', ['cssmin:dist']);
+	grunt.registerTask( 'css', [ 'clean-css', 'less-compile', 'css-minify']);
 
 	// js tasks
-	grunt.registerTask(  'js-bootstrap', ['clean-js', 'concat:bootstrap']);
+	grunt.registerTask( 'clean-js', [ 'clean:js' ] );
+	grunt.registerTask( 'js-bootstrap', ['clean-js', 'concat:bootstrapjs']);
+	grunt.registerTask( 'js', [ 'js-bootstrap' ]);
+
+	// all
+	grunt.registerTask(  'clean-all', ['clean-bootstrap', 'clean-fonts', 'clean-css', 'clean-js' ]);
+	grunt.registerTask(  'default', ['bootstrap', 'css', 'js' ]);
+
 };
 
