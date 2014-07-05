@@ -47,6 +47,7 @@ module.exports = function( grunt ) {
 
 		concat: {
 			options: {
+				// Using the banner to inject a jQuery check.
 				banner: '<%= jqueryCheck %>',
 				stripBanners: false
 			},
