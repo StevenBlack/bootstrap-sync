@@ -2,7 +2,8 @@
 	"location": {
 		"bootstrap": {
 			"authoritative": "/Users/Steve/Dropbox/dev/Css/bootstrap3",
-			"local": "bootstrap"
+			"local": "bootstrap",
+			"lesstweaks": "less"
 		},
 		"deploy": {
 			"css": "css",
@@ -10,6 +11,7 @@
 			"fonts": "fonts"
 		}
 	},
+
 	"filename": {
 		"css": "main.css",
 		"cssmin": "main.min.css",
