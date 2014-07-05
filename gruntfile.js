@@ -5,7 +5,7 @@ module.exports = function( grunt ) {
 
 	var _        = require('lodash');
 	var pkg      = grunt.file.readJSON( 'package.json' );
-	var options  = _.merge( {}, grunt.file.readJSON( 'options.json' ) );
+	var options  = grunt.file.exists( 'options.json' ) ? grunt.file.readJSON( 'options.json' ) : {} ;
 	var settings = _.merge( {}, pkg.defaults, options );
 
 	// Project configuration.
