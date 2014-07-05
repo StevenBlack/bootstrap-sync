@@ -32,7 +32,8 @@
     "grunt-git": "^0.2.14",
     "grunt-jekyll": "~0.4.2",
     "grunt-recess": "~0.4.0",
-    "grunt-yui-compressor": "0.3.0"
+    "grunt-yui-compressor": "0.3.0",
+    "load-grunt-tasks": "~0.6.0"
   },
   "engines": {
     "node": "~0.10.1"
