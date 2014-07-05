@@ -1,0 +1,19 @@
+{
+	"location": {
+		"bootstrap": {
+			"authoritative": "/Users/Steve/Dropbox/dev/Css/bootstrap3",
+			"local": "bootstrap"
+		},
+		"deploy": {
+			"css": "css",
+			"js": "js",
+			"fonts": "fonts"
+		}
+	},
+	"filename": {
+		"css": "main.css",
+		"cssmin": "main.min.css",
+		"js": "main.js",
+		"jsmin": "main.min.js"
+	}
+}
