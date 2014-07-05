@@ -3,11 +3,18 @@
 module.exports = function( grunt ) {
 	'use strict';
 
+	var _        = require('lodash');
+	var pkg      = grunt.file.readJSON( 'package.json' );
+	var options  = _.merge( {}, grunt.file.readJSON( 'options.json' ) );
+	var settings = _.merge( {}, pkg.defaults, options );
+
 	// Project configuration.
 	grunt.initConfig({
 
 		// Metadata.
-		pkg: grunt.file.readJSON( 'package.json' ),
+		pkg: pkg,
+		options: options,
+		settings: settings,
 
 		jqueryCheck: 'if (typeof jQuery === \'undefined\') { throw new Error(\'Bootstrap\\\'s JavaScript requires jQuery\') }\n\n' ,
 
@@ -22,19 +29,19 @@ module.exports = function( grunt ) {
 			'bootstrap-source': {
 				nonull: true,
 				expand: true,
-				cwd: '<%= pkg.config.location.bootstrap.authoritative %>/',
+				cwd: '<%= settings.location.bootstrap.authoritative %>/',
 				src: [ 'fonts/*', 'js/*', 'less/**' ],
 				dest: 'bootstrap/',
 			},
 			'bootstrap-tweaks': {
 				src: [ 'less/*' ],
-				dest: '<%= pkg.config.location.bootstrap.local %>/',
+				dest: '<%= settings.location.bootstrap.local %>/',
 			},
 			'stage-fonts': {
 				expand: true,
 				flatten: true,
-				src: [ '<%= pkg.config.location.bootstrap.local %>/fonts/*' ],
-				dest: '<%= pkg.config.location.deploy.fonts %>/'
+				src: [ '<%= settings.location.bootstrap.local %>/fonts/*' ],
+				dest: '<%= settings.location.deploy.fonts %>/'
 			}
 		},
 
@@ -43,22 +50,22 @@ module.exports = function( grunt ) {
 				banner: '<%= jqueryCheck %>',
 				stripBanners: false
 			},
-			bootstrap: {
+			bootstrapjs: {
 				src: [
-					'<%= pkg.config.location.bootstrap.local %>/js/transition.js',
-					'<%= pkg.config.location.bootstrap.local %>/js/alert.js',
-					'<%= pkg.config.location.bootstrap.local %>/js/button.js',
-					'<%= pkg.config.location.bootstrap.local %>/js/carousel.js',
-					'<%= pkg.config.location.bootstrap.local %>/js/collapse.js',
-					'<%= pkg.config.location.bootstrap.local %>/js/dropdown.js',
-					'<%= pkg.config.location.bootstrap.local %>/js/modal.js',
-					'<%= pkg.config.location.bootstrap.local %>/js/tooltip.js',
-					'<%= pkg.config.location.bootstrap.local %>/js/popover.js',
-					'<%= pkg.config.location.bootstrap.local %>/js/scrollspy.js',
-					'<%= pkg.config.location.bootstrap.local %>/js/tab.js',
-					'<%= pkg.config.location.bootstrap.local %>/js/affix.js'
+					'<%= settings.location.bootstrap.local %>/js/transition.js',
+					'<%= settings.location.bootstrap.local %>/js/alert.js',
+					'<%= settings.location.bootstrap.local %>/js/button.js',
+					'<%= settings.location.bootstrap.local %>/js/carousel.js',
+					'<%= settings.location.bootstrap.local %>/js/collapse.js',
+					'<%= settings.location.bootstrap.local %>/js/dropdown.js',
+					'<%= settings.location.bootstrap.local %>/js/modal.js',
+					'<%= settings.location.bootstrap.local %>/js/tooltip.js',
+					'<%= settings.location.bootstrap.local %>/js/popover.js',
+					'<%= settings.location.bootstrap.local %>/js/scrollspy.js',
+					'<%= settings.location.bootstrap.local %>/js/tab.js',
+					'<%= settings.location.bootstrap.local %>/js/affix.js'
 				],
-				dest: '<%= pkg.config.location.deploy.js %>/<%= pkg.config.filename.js %>'
+				dest: '<%= settings.location.deploy.js %>/<%= settings.filename.js %>'
 			}
 		},
 
@@ -68,14 +75,14 @@ module.exports = function( grunt ) {
 					strictMath: true,
 					outputSourceFiles: true
 				},
-				files: { '<%= pkg.config.location.deploy.css %>/<%= pkg.config.filename.css %>': '<%= pkg.config.location.bootstrap.local %>/less/custom.less' }
+				files: { '<%= settings.location.deploy.css %>/<%= settings.filename.css %>': '<%= settings.location.bootstrap.local %>/less/custom.less' }
 			}
 		},
 
 		cssmin: {
 			'dist': {
-				'src': [ '<%= pkg.config.location.deploy.css %>/<%= pkg.config.filename.css %>' ],
-				'dest': '<%= pkg.config.location.deploy.css %>/<%= pkg.config.filename.cssmin %>'
+				'src': [ '<%= settings.location.deploy.css %>/<%= settings.filename.css %>' ],
+				'dest': '<%= settings.location.deploy.css %>/<%= settings.filename.cssmin %>'
 			}
 		}
 

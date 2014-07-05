@@ -38,7 +38,7 @@
   "engines": {
     "node": "~0.10.1"
   },
-  "config": {
+  "defaults": {
       "location": {
           "bootstrap": {
             "authoritative": "/Users/Steve/Dropbox/dev/Css/bootstrap3",
