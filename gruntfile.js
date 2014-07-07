@@ -61,20 +61,12 @@ module.exports = function( grunt ) {
 				stripBanners: false
 			},
 			bootstrapjs: {
-				src: [
-					'<%= settings.location.bootstrap.local %>/js/transition.js',
-					'<%= settings.location.bootstrap.local %>/js/alert.js',
-					'<%= settings.location.bootstrap.local %>/js/button.js',
-					'<%= settings.location.bootstrap.local %>/js/carousel.js',
-					'<%= settings.location.bootstrap.local %>/js/collapse.js',
-					'<%= settings.location.bootstrap.local %>/js/dropdown.js',
-					'<%= settings.location.bootstrap.local %>/js/modal.js',
-					'<%= settings.location.bootstrap.local %>/js/tooltip.js',
-					'<%= settings.location.bootstrap.local %>/js/popover.js',
-					'<%= settings.location.bootstrap.local %>/js/scrollspy.js',
-					'<%= settings.location.bootstrap.local %>/js/tab.js',
-					'<%= settings.location.bootstrap.local %>/js/affix.js'
-				],
+				src: ( function() {
+						var cwd = settings.location.bootstrap.local + '/';
+						var arr = settings.tasks.concat.bootstrapjs.src;
+						return arr.map(function(file) { return cwd + "/" + file; });
+						}()
+				),
 				dest: '<%= settings.location.deploy.js %>/<%= settings.filename.js %>'
 			}
 		},
