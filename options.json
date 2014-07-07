@@ -19,7 +19,7 @@
 		"jsmin": "main.min.js"
 	},
 
-	"tasks" : {
+	"task" : {
 		"concat": {
 			"bootstrapjs": {
 				"src": [

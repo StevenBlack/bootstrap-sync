@@ -63,7 +63,7 @@ module.exports = function( grunt ) {
 			bootstrapjs: {
 				src: ( function() {
 						var cwd = settings.location.bootstrap.local + '/';
-						var arr = settings.tasks.concat.bootstrapjs.src;
+						var arr = settings.task.concat.bootstrapjs.src;
 						return arr.map(function(file) { return cwd + "/" + file; });
 						}()
 				),
