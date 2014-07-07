@@ -38,10 +38,19 @@ module.exports = function( grunt ) {
 				dest: '<%= settings.location.bootstrap.local %>/',
 			},
 			'stage-fonts': {
-				expand: true,
-				flatten: true,
-				src: [ '<%= settings.location.bootstrap.local %>/fonts/*' ],
-				dest: '<%= settings.location.deploy.fonts %>/'
+				'bootstrap': {
+					expand: true,
+					flatten: true,
+					src: [ '<%= settings.location.bootstrap.local %>/fonts/*' ],
+					dest: '<%= settings.location.deploy.fonts %>/'
+				},
+
+				'fontawesome': {
+					expand: true,
+					flatten: true,
+					src: [ '_font-awesome/fonts/*' ],
+					dest: '<%= settings.location.deploy.fonts %>/'
+				}
 			}
 		},
 
@@ -86,9 +95,10 @@ module.exports = function( grunt ) {
 		},
 
 		cssmin: {
-			'dist': {
-				'src': [ '<%= settings.location.deploy.css %>/<%= settings.filename.css %>' ],
-				'dest': '<%= settings.location.deploy.css %>/<%= settings.filename.cssmin %>'
+			combine: {
+				files: {
+					'<%= settings.location.deploy.css %>/<%= settings.filename.cssmin %>': [ '<%= settings.location.deploy.css %>/<%= settings.filename.css %>', '_font-awesome/css/font-awesome.css' ]
+				}
 			}
 		}
 
@@ -111,8 +121,8 @@ module.exports = function( grunt ) {
 
 	// Less and css tasks
 	grunt.registerTask( 'clean-css', [ 'clean:css' ] );
-	grunt.registerTask( 'less-compile', ['less:compileCore']);
-	grunt.registerTask( 'css-minify', ['cssmin:dist']);
+	grunt.registerTask( 'less-compile', [ 'less:compileCore' ]);
+	grunt.registerTask( 'css-minify', [ 'cssmin' ]);
 	grunt.registerTask( 'css', [ 'clean-css', 'less-compile', 'css-minify']);
 
 	// js tasks
