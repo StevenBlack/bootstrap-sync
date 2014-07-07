@@ -30,15 +30,11 @@ Here I'm using a vanilla [Jekyll](jekyllrb.com) deployment but that's just an im
 
 * As a result many developers simply use pre-built and pre-minimized Bootstrap files along with themes because they are dissuaded by the complexity of stripping Bootstrap of its components they don't need.  Therefore Bootstrap sites tend to be more bloated than they could be.  Because that's just easy.
 
+(Still working on the ReadMe)
 
+----
 
-
-The interesting parts are the `gruntfile.js` file, the `package.json` file, and a new file named `options.js` which adds extensibility to 
-
-
-
-
-helps to version sites built with [Bootstrap](http://getbootstrap.com) -- and in this case [Jekyll](http://jekyllrb.com) so bootstrap can be easily versioned. 
+The interesting parts are the `gruntfile.js` file, the `package.json` file, and a new file named `options.js` which adds extensibility to the gruntfile so bootstrap can be more easily versioned. 
 
 ## Author
 
