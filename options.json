@@ -16,7 +16,8 @@
 		"css": "main.css",
 		"cssmin": "main.min.css",
 		"js": "main.js",
-		"jsmin": "main.min.js"
+		"jsmin": "main.min.js",
+		"less": "custom.less"
 	},
 
 	"task" : {

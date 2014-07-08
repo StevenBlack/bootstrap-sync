@@ -73,7 +73,7 @@ module.exports = function( grunt ) {
 
 		uglify: {
 			options: { report: 'min', compress: true },
-			bootstrap: { src: ['<%= concat.bootstrapjs.dest %>'], dest: '<%= settings.location.deploy.js %>/<%= settings.filename.jsmin %>' }
+			bootstrap: { src: [ '<%= concat.bootstrapjs.dest %>' ], dest: '<%= settings.location.deploy.js %>/<%= settings.filename.jsmin %>' }
 		},
 
 		less: {
@@ -82,7 +82,7 @@ module.exports = function( grunt ) {
 					strictMath: true,
 					outputSourceFiles: true
 				},
-				files: { '<%= settings.location.deploy.css %>/<%= settings.filename.css %>': '<%= settings.location.bootstrap.local %>/less/custom.less' }
+				files: { '<%= settings.location.deploy.css %>/<%= settings.filename.css %>': '<%= settings.location.bootstrap.local %>/less/<%= settings.filename.less %>' }
 			}
 		},
 
