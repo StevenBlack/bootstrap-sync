@@ -3,10 +3,11 @@
 module.exports = function( grunt ) {
 	'use strict';
 
-	var _        = require('lodash');
-	var pkg      = grunt.file.readJSON( 'package.json' );
-	var options  = grunt.file.exists( 'options.json' ) ? grunt.file.readJSON( 'options.json' ) : {} ;
-	var settings = _.merge( {}, pkg.defaults, options );
+	var optionsfile = 'gruntoptions.json';
+	var _           = require('lodash');
+	var pkg         = grunt.file.readJSON( 'package.json' );
+	var options     = grunt.file.exists( optionsfile ) ? grunt.file.readJSON( optionsfile ) : {} ;
+	var settings    = _.merge( {}, pkg.defaults, options );
 
 	// Project configuration.
 	grunt.initConfig({
