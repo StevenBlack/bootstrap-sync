@@ -21,7 +21,7 @@ module.exports = function( grunt ) {
 
 		clean: {
 			'bootstrap-source': [ '<%= settings.location.bootstrap.local %>/' ],
-			'bootstrap-fonts': [ 'settings.location.deploy.fonts %>/' ],
+			'bootstrap-fonts': [ '<%= settings.location.deploy.fonts %>/' ],
 			'css': [ '<%= settings.location.deploy.css %>/', "!<%= settings.location.deploy.css %>/main.css" ],
 			'js': [ '<%= settings.location.deploy.js %>/' ]
 		},
