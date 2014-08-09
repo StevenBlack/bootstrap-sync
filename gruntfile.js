@@ -21,7 +21,7 @@ module.exports = function( grunt ) {
 
 		clean: {
 			'bootstrap-source': [ '<%= settings.location.bootstrap.local %>/' ],
-			'bootstrap-fonts': [ '<%= settings.location.deploy.fonts %>/' ],
+			'fonts': [ '<%= settings.location.deploy.fonts %>/' ],
 			'css': [ '<%= settings.location.deploy.css %>/', "!<%= settings.location.deploy.css %>/main.css" ],
 			'js': [ '<%= settings.location.deploy.js %>/' ]
 		},
@@ -38,20 +38,17 @@ module.exports = function( grunt ) {
 				src: [ 'less/*' ],
 				dest: '<%= settings.location.bootstrap.local %>/',
 			},
-			'stage-fonts': {
-				'bootstrap': {
-					expand: true,
-					flatten: true,
-					src: [ '<%= settings.location.bootstrap.local %>/fonts/*' ],
-					dest: '<%= settings.location.deploy.fonts %>/'
-				},
-
-				'fontawesome': {
-					expand: true,
-					flatten: true,
-					src: [ '_font-awesome/fonts/*' ],
-					dest: '<%= settings.location.deploy.fonts %>/'
-				}
+			'bootstrap-fonts': {
+				expand: true,
+				flatten: true,
+				src: [ '<%= settings.location.bootstrap.local %>/fonts/*' ],
+				dest: '<%= settings.location.deploy.fonts %>/'
+			},
+			'fontawesome': {
+				expand: true,
+				flatten: true,
+				src: [ '<%= settings.location.fontawesome.local %>/fonts/*' ],
+				dest: '<%= settings.location.deploy.fonts %>/'
 			}
 		},
 
@@ -104,12 +101,12 @@ module.exports = function( grunt ) {
 	// Bootstrap tasks
 	//    cleanup
 	grunt.registerTask( 'clean-bootstrap', [ 'clean:bootstrap-source' ] );
-	grunt.registerTask( 'clean-fonts', [ 'clean:bootstrap-fonts' ] );
+	grunt.registerTask( 'clean-fonts', [ 'clean:fonts' ] );
 
 	//    constructing
 	grunt.registerTask( 'fetch-fresh-bootstrap', [ 'copy:bootstrap-source' ] );
 	grunt.registerTask( 'apply-bootstrap-tweaks', [ 'copy:bootstrap-tweaks' ] );
-	grunt.registerTask( 'update-fonts', [ 'clean-fonts', 'copy:stage-fonts' ] );
+	grunt.registerTask( 'update-fonts', [ 'clean-fonts', 'copy:bootstrap-fonts', 'copy:fontawesome' ] );
 	grunt.registerTask( 'bootstrap', [ 'clean-bootstrap', 'fetch-fresh-bootstrap', 'apply-bootstrap-tweaks', 'update-fonts' ] );
 
 	// Less and css tasks

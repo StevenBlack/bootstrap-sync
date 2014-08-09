@@ -5,6 +5,10 @@
 			"local": "bootstrap",
 			"lesstweaks": "less"
 		},
+		"fontawesome": {
+			"authoritative": "/Users/Steve/Dropbox/dev/Css/Font-Awesome",
+			"local": "_font-Awesome"
+		},
 		"deploy": {
 			"css": "css",
 			"js": "js",
