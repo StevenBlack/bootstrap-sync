@@ -1,25 +1,25 @@
 {
-  "name": "Jekyll-And-Bootstrap",
-  "description": "This repo provides resources to help version sites built with [Jekyll](http://jekyllrb.com) and [Bootstrap](http://getbootstrap.com).",
-  "version": "0.0.0",
+  "name": "Bootstrap-sync",
+  "description": "This repo provides resources to help version sites built with [Bootstrap](http://getbootstrap.com).",
+  "version": "0.0.1",
   "keywords": [
     "Jekyll",
     "bootstrap"
   ],
-  "homepage": "https://github.com/StevenBlack/jekyll-and-bootstrap",
+  "homepage": "https://github.com/StevenBlack/bootstrap-sync",
   "author": "Steven Black",
   "style": "css/bootstrap.css",
   "less": "bootstrap/less/custom.less",
   "repository": {
     "type": "git",
-    "url": "https://github.com/StevenBlack/jekyll-and-bootstrap"
+    "url": "https://github.com/StevenBlack/bootstrap-sync"
   },
   "bugs": {
-    "url": "https://github.com/StevenBlack/jekyll-and-bootstrap/issues"
+    "url": "https://github.com/StevenBlack/bootstrap-sync/issues"
   },
   "license": {
     "type": "MIT",
-    "url": "https://raw.githubusercontent.com/StevenBlack/jekyll-and-bootstrap/master/LICENSE-MIT"
+    "url": "https://raw.githubusercontent.com/StevenBlack/bootstrap-sync/master/LICENSE-MIT"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
