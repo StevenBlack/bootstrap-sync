@@ -1,10 +1,10 @@
 {
   "name": "Bootstrap-sync",
-  "description": "This repo provides resources to help version sites built with [Bootstrap](http://getbootstrap.com).",
+  "description": "This repo provides resources to help synchronize development of sites built with [Bootstrap](http://getbootstrap.com).",
   "version": "0.0.1",
   "keywords": [
-    "Jekyll",
-    "bootstrap"
+    "bootstrap",
+    "sync"
   ],
   "homepage": "https://github.com/StevenBlack/bootstrap-sync",
   "author": "Steven Black",
@@ -23,16 +23,16 @@
   },
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-concat": "~0.4.0",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-contrib-cssmin": "~0.10.0",
-    "grunt-contrib-less": "~0.11.3",
-    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-concat": "~0.5.0",
+    "grunt-contrib-copy": "~0.7.0",
+    "grunt-contrib-cssmin": "~0.11.0",
+    "grunt-contrib-less": "~1.0.0",
+    "grunt-contrib-uglify": "~0.7.0",
     "grunt-git": "^0.2.14",
     "grunt-recess": "~0.4.0",
     "grunt-yui-compressor": "0.3.0",
-    "load-grunt-tasks": "~0.6.0",
+    "load-grunt-tasks": "~2.0.0",
     "lodash": "~2.4.1"
   },
   "engines": {
