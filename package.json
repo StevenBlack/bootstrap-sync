@@ -58,7 +58,6 @@
         "jsmin": "main.min.js",
         "less": "bootstrap.less"
       },
-
       "task" : {
         "concat": {
           "bootstrapjs": {
