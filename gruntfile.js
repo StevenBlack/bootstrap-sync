@@ -1,5 +1,9 @@
-/* jshint node: true */
-
+/*!
+ * Bootstrap-sync's Gruntfile
+ * https://github.com/StevenBlack/bootstrap-sync
+ * Copyright 2014-2015 Twitter, Inc.
+ * Licensed under MIT (https://raw.githubusercontent.com/StevenBlack/bootstrap-sync/master/LICENSE-MIT)
+ */
 module.exports = function( grunt ) {
 	'use strict';
 
