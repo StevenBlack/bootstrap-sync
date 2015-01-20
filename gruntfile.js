@@ -36,11 +36,11 @@ module.exports = function( grunt ) {
 				expand: true,
 				cwd: '<%= settings.location.bootstrap.authoritative %>/',
 				src: [ '<%= settings.location.deploy.fonts %>/*', '<%= settings.location.deploy.js %>/*', 'less/**' ],
-				dest: '<%= settings.location.bootstrap.local %>/',
+				dest: '<%= settings.location.bootstrap.local %>/'
 			},
 			'bootstrap-tweaks': {
 				src: [ 'less/*' ],
-				dest: '<%= settings.location.bootstrap.local %>/',
+				dest: '<%= settings.location.bootstrap.local %>/'
 			},
 			'bootstrap-fonts': {
 				expand: true,
