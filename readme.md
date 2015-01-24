@@ -1,13 +1,21 @@
-# Boostrap-sync (here with Jekyll)
+# Boostrap-sync
 
 > "The reason that God was able to create the world in seven days is
 that he didn't have to worry about the installed base."
 - [Enzo Torresi](http://www.worldclassrd.org/quotations/1406)
 
 ## Intro
-This repository demonstrates a [Jekyll](http://jekyllrb.com) site, built with [Bootstrap](http://getbootstrap.com), whose gruntfile provides for painless versioning of its Bootstrap assets.
+This repository demonstrates the data-driven and controlled versioning of a [Bootstrap](http://getbootstrap.com)-based website.
 
-Here I'm using a vanilla [Jekyll](jekyllrb.com) deployment but that's just an implementation detail.  
+For the purpose of this repo I'm using [Jekyll](http://jekyllrb.com), but that's merely an implementation detail
+
+Here we see:
+
+1. A `_bootstrap` folder, named with a leading "_" so Jekyll will ignore it in its build process.  This folder contains managed copies of `fonts`, `js`, and `less` folders that come straight from Bootstrap.
+1. A `_less` folder named with a leading "_" . This folder contains two files which configure this particular website:
+	* `variables-override.less` which overrides some elements within Bootstrap's `variablers.less`, and
+	* `custom.less` which is the custom build order for CSS.
+
 
 ### The Problem
 
