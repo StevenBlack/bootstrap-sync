@@ -35,7 +35,7 @@ module.exports = function( grunt ) {
 				nonull: true,
 				expand: true,
 				cwd: '<%= settings.location.bootstrap.authoritative %>/',
-				src: [ '<%= settings.location.deploy.fonts %>/*', '<%= settings.location.deploy.js %>/*', 'less/**' ],
+				src: [ 'fonts/*', 'js/*', 'less/**' ],
 				dest: '<%= settings.location.bootstrap.local %>/'
 			},
 			'bootstrap-tweaks': {
