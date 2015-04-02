@@ -46,8 +46,10 @@ module.exports = function( grunt ) {
 				dest: '<%= settings.location.fontawesome.local %>/'
 			},
 			'bootstrap-tweaks': {
-				src: [ 'less/*' ],
-				dest: '<%= settings.location.bootstrap.local %>/'
+				expand: true,
+				flatten: true,
+				src: [ '<%= settings.location.bootstrap.lesstweaks %>/*.less' ],
+				dest: '<%= settings.location.bootstrap.local %>/less/'
 			},
 			'bootstrap-fonts': {
 				expand: true,
